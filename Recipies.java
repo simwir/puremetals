@@ -1,11 +1,16 @@
 package mods.simwir.puremetals;
 
+import mods.simwir.puremetals.common.core.handlers.CraftingHandler;
+import mods.simwir.puremetals.lib.ItemReferences;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import cpw.mods.fml.common.registry.GameRegistry;
 
 public class Recipies {
+	
+	public static final int WILDCARD_VALUE=Short.MAX_VALUE;
+	
 	public Recipies(){
 	}
 
@@ -44,6 +49,28 @@ public class Recipies {
 		
 		//Adding Brick Bowl Recipe
 		GameRegistry.addShapelessRecipe(new ItemStack(PureMetals.brickBowl), 
-		new ItemStack(PureMetals.chisel,1,1), new ItemStack(Item.brick));
+		new ItemStack(PureMetals.chisel,1, WILDCARD_VALUE), new ItemStack(Item.brick));
+		
+		//Adding Bowl of Crushed Iron Recipe
+		GameRegistry.addShapelessRecipe(new ItemStack(PureMetals.bowlIron), 
+		new ItemStack(PureMetals.brickBowl), new ItemStack(PureMetals.ironDust));
+		
+		//Adding Bowl of Crushed Gold Recipe
+		GameRegistry.addShapelessRecipe(new ItemStack(PureMetals.bowlGold), 
+		new ItemStack(PureMetals.brickBowl), new ItemStack(PureMetals.goldDust));
+		
+		//Adding Bowl of Molten Iron Smelting Recipe
+		GameRegistry.addSmelting(PureMetals.bowlIron.itemID, new ItemStack(PureMetals.bowlMoltenIron), 0.1F);
+		
+		//Adding Bowl of Molten Gold Smelting Recipe
+		GameRegistry.addSmelting(PureMetals.bowlGold.itemID, new ItemStack(PureMetals.bowlMoltenGold), 0.1F);
+		
+		//Adding Pure Iron Recipe
+		GameRegistry.addShapelessRecipe(pureIronStack, 
+		new ItemStack(PureMetals.chisel,1, WILDCARD_VALUE), new ItemStack(PureMetals.bowlMoltenIron));
+		
+		//Adding Pure Gold Recipe
+		GameRegistry.addShapelessRecipe(pureGoldStack, 
+		new ItemStack(PureMetals.chisel,1, WILDCARD_VALUE), new ItemStack(PureMetals.bowlMoltenGold));
 	}
 }

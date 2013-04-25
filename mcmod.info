@@ -1,0 +1,20 @@
+[
+{
+  "modid": "puremetals",
+  "name": "Pure Metal",
+  "description": "",
+  "version": "0.0.1",
+  "url": "",
+  "updateUrl": "",
+  "authorList": [
+    "simwir"
+  ],
+  "credits": "",
+  "logoFile": "",
+  "screenshots": [
+  ],
+  "parent":"",
+  "dependencies": [
+  ]
+}
+]

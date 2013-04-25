@@ -12,7 +12,7 @@ public class ToolChisel extends Item{
 		super(par1);
 		setCreativeTab(CreativeTabs.tabTools);
 		setUnlocalizedName("chisel");
-		setMaxDamage(30);
+		setMaxDamage(10);
 		setMaxStackSize(1);
 	}
 	@SideOnly(Side.CLIENT)

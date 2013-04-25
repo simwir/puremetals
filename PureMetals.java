@@ -5,6 +5,10 @@ import mods.simwir.puremetals.blocks.BlockPureIron;
 import mods.simwir.puremetals.common.core.handlers.CraftingHandler;
 import mods.simwir.puremetals.items.IngotPureGold;
 import mods.simwir.puremetals.items.IngotPureIron;
+import mods.simwir.puremetals.items.ItemBowlGold;
+import mods.simwir.puremetals.items.ItemBowlIron;
+import mods.simwir.puremetals.items.ItemBowlMoltenGold;
+import mods.simwir.puremetals.items.ItemBowlMoltenIron;
 import mods.simwir.puremetals.items.ItemBrickBowl;
 import mods.simwir.puremetals.items.ItemGoldDust;
 import mods.simwir.puremetals.items.ItemIronDust;
@@ -49,6 +53,10 @@ public class PureMetals {
 	public static int goldDustId;
 	public static int brickBowlId;
 	public static int chiselId;
+	public static int bowlIronId;
+	public static int bowlGoldId;
+	public static int bowlMoltenIronId;
+	public static int bowlMoltenGoldId;
 	//Defining Blocks
 	public static Block blockPureIron;
 	public static Block blockPureGold;
@@ -59,6 +67,10 @@ public class PureMetals {
 	public static Item goldDust;
 	public static Item brickBowl;
 	public static Item chisel;
+	public static Item bowlIron;
+	public static Item bowlGold;
+	public static Item bowlMoltenIron;
+	public static Item bowlMoltenGold;
 	
 	@PreInit
 	public void preInit(FMLPreInitializationEvent event){
@@ -76,6 +88,10 @@ public class PureMetals {
 		goldDustId = config.getItem(ItemReferences.GOLD_DUST_NAME, ItemReferences.GOLD_DUST_DEFAULT_ID).getInt();
 		brickBowlId = config.getItem(ItemReferences.BRICK_BOWL_NAME, ItemReferences.BRICK_BOWL_DEFAULT_ID).getInt();
 		chiselId = config.getItem(ItemReferences.CHISEL_NAME, ItemReferences.CHISEL_DEFAULT_ID).getInt();
+		bowlIronId = config.getItem(ItemReferences.BOWL_IRON_NAME, ItemReferences.BOWL_IRON_DEFAULT_ID).getInt();
+		bowlGoldId = config.getItem(ItemReferences.BOWL_GOLD_NAME, ItemReferences.BOWL_GOLD_DEFAULT_ID).getInt();
+		bowlMoltenIronId = config.getItem(ItemReferences.BOWL_MOLTEN_IRON_NAME, ItemReferences.BOWL_MOLTEN_IRON_DEFAULT_ID).getInt();
+		bowlMoltenGoldId = config.getItem(ItemReferences.BOWL_MOLTEN_GOLD_NAME, ItemReferences.BOWL_MOLTEN_GOLD_DEFAULT_ID).getInt();
 		
 		config.save();
 	}
@@ -92,6 +108,10 @@ public class PureMetals {
 		goldDust = new ItemGoldDust(goldDustId);
 		brickBowl = new ItemBrickBowl(brickBowlId);
 		chisel = new ToolChisel(chiselId);
+		bowlIron = new ItemBowlIron(bowlIronId);
+		bowlGold = new ItemBowlGold(bowlGoldId);
+		bowlMoltenIron = new ItemBowlMoltenIron(bowlMoltenIronId);
+		bowlMoltenGold = new ItemBowlMoltenGold(bowlMoltenGoldId);
 		
 		GameRegistry.registerCraftingHandler(new CraftingHandler());
 		
@@ -125,5 +145,9 @@ public class PureMetals {
 		LanguageRegistry.addName(goldDust, ItemReferences.GOLD_DUST_NAME);
 		LanguageRegistry.addName(brickBowl, ItemReferences.BRICK_BOWL_NAME);
 		LanguageRegistry.addName(chisel, ItemReferences.CHISEL_NAME);
+		LanguageRegistry.addName(bowlIron, ItemReferences.BOWL_IRON_NAME);
+		LanguageRegistry.addName(bowlGold, ItemReferences.BOWL_GOLD_NAME);
+		LanguageRegistry.addName(bowlMoltenIron, ItemReferences.BOWL_MOLTEN_IRON_NAME);
+		LanguageRegistry.addName(bowlMoltenGold, ItemReferences.BOWL_MOLTEN_GOLD_NAME);
 	}
 }
