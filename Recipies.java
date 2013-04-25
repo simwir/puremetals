@@ -1,5 +1,7 @@
 package mods.simwir.puremetals;
 
+import net.minecraft.block.Block;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import cpw.mods.fml.common.registry.GameRegistry;
 
@@ -21,5 +23,27 @@ public class Recipies {
 		pureGoldStack, pureGoldStack, pureGoldStack,
 		pureGoldStack, pureGoldStack, pureGoldStack,
 		pureGoldStack, pureGoldStack, pureGoldStack);
+		
+		//Adding Pure Iron Block to Pure Iron Recipe
+		GameRegistry.addShapelessRecipe(new ItemStack(PureMetals.pureIron, 9), new ItemStack(PureMetals.blockPureIron));
+		
+		//Adding Pure Gold Block to Pure Gold Recipe
+		GameRegistry.addShapelessRecipe(new ItemStack(PureMetals.pureGold, 9), new ItemStack(PureMetals.blockPureGold));
+		
+		//Adding Iron Dust Recipe
+		GameRegistry.addShapelessRecipe(new ItemStack(PureMetals.ironDust),
+		new ItemStack(Block.cobblestone), new ItemStack(Item.ingotIron));
+		
+		//Adding Gold Dust Recipe
+		GameRegistry.addShapelessRecipe(new ItemStack(PureMetals.goldDust),
+		new ItemStack(Block.cobblestone), new ItemStack(Item.ingotGold));
+		
+		//Adding Chisel Recipe
+		GameRegistry.addShapedRecipe(new ItemStack(PureMetals.chisel), " x", "y ",
+				'x', new ItemStack(Block.stone), 'y', new ItemStack(Item.stick) );
+		
+		//Adding Brick Bowl Recipe
+		GameRegistry.addShapelessRecipe(new ItemStack(PureMetals.brickBowl), 
+		new ItemStack(PureMetals.chisel,1,1), new ItemStack(Item.brick));
 	}
 }

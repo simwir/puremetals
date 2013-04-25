@@ -2,8 +2,13 @@ package mods.simwir.puremetals;
 
 import mods.simwir.puremetals.blocks.BlockPureGold;
 import mods.simwir.puremetals.blocks.BlockPureIron;
+import mods.simwir.puremetals.common.core.handlers.CraftingHandler;
 import mods.simwir.puremetals.items.IngotPureGold;
 import mods.simwir.puremetals.items.IngotPureIron;
+import mods.simwir.puremetals.items.ItemBrickBowl;
+import mods.simwir.puremetals.items.ItemGoldDust;
+import mods.simwir.puremetals.items.ItemIronDust;
+import mods.simwir.puremetals.items.ToolChisel;
 import mods.simwir.puremetals.lib.BlockReferences;
 import mods.simwir.puremetals.lib.ItemReferences;
 import mods.simwir.puremetals.lib.References;
@@ -40,12 +45,20 @@ public class PureMetals {
 	//Defining Item ID int
 	public static int pureIronId;
 	public static int pureGoldId;
+	public static int ironDustId;
+	public static int goldDustId;
+	public static int brickBowlId;
+	public static int chiselId;
 	//Defining Blocks
 	public static Block blockPureIron;
 	public static Block blockPureGold;
 	//Defining Items
 	public static Item pureIron;
 	public static Item pureGold;
+	public static Item ironDust;
+	public static Item goldDust;
+	public static Item brickBowl;
+	public static Item chisel;
 	
 	@PreInit
 	public void preInit(FMLPreInitializationEvent event){
@@ -59,6 +72,10 @@ public class PureMetals {
 		//Creating Item IDs in config
 		pureIronId = config.getItem(ItemReferences.PURE_IRON_NAME, ItemReferences.PURE_IRON_DEFAULT_ID).getInt();
 		pureGoldId = config.getItem(ItemReferences.PURE_GOLD_NAME, ItemReferences.PURE_GOLD_DEFAULT_ID).getInt();
+		ironDustId = config.getItem(ItemReferences.IRON_DUST_NAME, ItemReferences.IRON_DUST_DEFAULT_ID).getInt();
+		goldDustId = config.getItem(ItemReferences.GOLD_DUST_NAME, ItemReferences.GOLD_DUST_DEFAULT_ID).getInt();
+		brickBowlId = config.getItem(ItemReferences.BRICK_BOWL_NAME, ItemReferences.BRICK_BOWL_DEFAULT_ID).getInt();
+		chiselId = config.getItem(ItemReferences.CHISEL_NAME, ItemReferences.CHISEL_DEFAULT_ID).getInt();
 		
 		config.save();
 	}
@@ -71,6 +88,13 @@ public class PureMetals {
 		//Adding items to game
 		pureIron = new IngotPureIron(pureIronId);
 		pureGold = new IngotPureGold(pureGoldId);
+		ironDust = new ItemIronDust(ironDustId);
+		goldDust = new ItemGoldDust(goldDustId);
+		brickBowl = new ItemBrickBowl(brickBowlId);
+		chisel = new ToolChisel(chiselId);
+		
+		GameRegistry.registerCraftingHandler(new CraftingHandler());
+		
 		//Registering blocks to game
 		gameRegisters();
 		//Adding block and item names to game
@@ -97,5 +121,9 @@ public class PureMetals {
 		//Adding item names to game
 		LanguageRegistry.addName(pureIron, ItemReferences.PURE_IRON_NAME);
 		LanguageRegistry.addName(pureGold, ItemReferences.PURE_GOLD_NAME);
+		LanguageRegistry.addName(ironDust, ItemReferences.IRON_DUST_NAME);
+		LanguageRegistry.addName(goldDust, ItemReferences.GOLD_DUST_NAME);
+		LanguageRegistry.addName(brickBowl, ItemReferences.BRICK_BOWL_NAME);
+		LanguageRegistry.addName(chisel, ItemReferences.CHISEL_NAME);
 	}
 }
