@@ -4,9 +4,9 @@ import mods.simwir.puremetals.lib.ItemReferences;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 
-public class PureGold extends PureIron{
+public class IngotPureGold extends IngotPureIron{
 
-	public PureGold(int par1) {
+	public IngotPureGold(int par1) {
 		super(par1);
 		
 		setUnlocalizedName("pureGold");

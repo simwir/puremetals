@@ -8,9 +8,9 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.util.Icon;
 
-public class PureIron extends Item{
+public class IngotPureIron extends Item{
 
-	public PureIron(int par1) {
+	public IngotPureIron(int par1) {
 		super(par1);
 		
 		setCreativeTab(CreativeTabs.tabMaterials);
