@@ -14,6 +14,7 @@ public class BlockPureIron extends Block{
 		setCreativeTab(CreativeTabs.tabBlock);
 		setLightValue(1.0F);
 		setResistance(50);
+		setHardness(5.0F);
 	}
 	@Override
 	public void registerIcons(IconRegister iconRegister){

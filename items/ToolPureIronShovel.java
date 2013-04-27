@@ -9,23 +9,16 @@ import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.EnumToolMaterial;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemSpade;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemTool;
 
-public class ToolPureIronShovel extends ItemTool{
+public class ToolPureIronShovel extends ItemSpade{
 	public ToolPureIronShovel(int par1, EnumToolMaterial mat, int par4) {//par4 damage to mobs and entities
-		super(par1, par4, mat, ToolReferences.SHOVEL_EFFEKTIVE_AGAINST);
+		super(par1, mat);
 		
 		setUnlocalizedName("pureIronShovel");
 		setMaxDamage(250);
-	}
-	
-	public boolean canHarvestBlock(Block block){
-		return block.blockMaterial == Material.snow;
-	}
-	
-	public float getStrVsBlock(ItemStack itemStack, Block block){
-		return block.blockMaterial != null && block.blockMaterial == Material.grass ? this.efficiencyOnProperMaterial : (block.blockMaterial == Material.sand ? this.efficiencyOnProperMaterial : super.getStrVsBlock(itemStack, block));
 	}
 	
 	@SideOnly(Side.CLIENT)
