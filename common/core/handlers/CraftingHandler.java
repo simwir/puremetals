@@ -20,6 +20,12 @@ public class CraftingHandler  implements ICraftingHandler{
 						k.stackSize--; //removes added item
 					}
 					craftMatrix.setInventorySlotContents(i, k); //sets the slot to a new item
+				}else if(j.getItem() != null && j.getItem() == PureMetals.stoneHammer){ // if the item is a Stone hammer
+					ItemStack k = new ItemStack(PureMetals.stoneHammer, 2, (j.getItemDamage()+1)); //Makes a new itemstack that's been damaged and has 2 items
+					if(k.getItemDamage()>= k.getMaxDamage()){ //if the item is destroyed
+						k.stackSize--; //removes added item
+					}
+					craftMatrix.setInventorySlotContents(i, k); //sets the slot to a new item
 				}
 			}
 			

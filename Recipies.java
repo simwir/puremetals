@@ -37,11 +37,11 @@ public class Recipies {
 		
 		//Iron Dust Recipe
 		GameRegistry.addShapelessRecipe(new ItemStack(PureMetals.ironDust),
-		new ItemStack(Block.cobblestone), new ItemStack(Item.ingotIron));
+		new ItemStack(PureMetals.stoneHammer,1, WILDCARD_VALUE), new ItemStack(Item.ingotIron));
 		
 		//Gold Dust Recipe
 		GameRegistry.addShapelessRecipe(new ItemStack(PureMetals.goldDust),
-		new ItemStack(Block.cobblestone), new ItemStack(Item.ingotGold));
+		new ItemStack(PureMetals.stoneHammer,1, WILDCARD_VALUE), new ItemStack(Item.ingotGold));
 		
 		//Chisel Recipe
 		GameRegistry.addShapedRecipe(new ItemStack(PureMetals.chisel), " x", "y ",
@@ -88,5 +88,8 @@ public class Recipies {
 		//Pure Gold Pickaxe Recipe
 				GameRegistry.addShapedRecipe(new ItemStack(PureMetals.pureGoldPickaxe), "xxx", " y ", " y ",
 						'x', pureGoldStack, 'y', new ItemStack(Item.stick));
+		//Stone Hammer Recipe
+				GameRegistry.addShapedRecipe(new ItemStack(PureMetals.stoneHammer), "xxx", "xyx", " y ",
+						'x', new ItemStack(Block.cobblestone), 'y', new ItemStack(Item.stick));
 	}
 }

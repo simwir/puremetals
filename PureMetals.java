@@ -17,6 +17,7 @@ import mods.simwir.puremetals.items.ToolPureGoldPickaxe;
 import mods.simwir.puremetals.items.ToolPureGoldShovel;
 import mods.simwir.puremetals.items.ToolPureIronPickaxe;
 import mods.simwir.puremetals.items.ToolPureIronShovel;
+import mods.simwir.puremetals.items.ToolStoneHammer;
 import mods.simwir.puremetals.lib.BlockReferences;
 import mods.simwir.puremetals.lib.ItemReferences;
 import mods.simwir.puremetals.lib.References;
@@ -66,6 +67,7 @@ public class PureMetals {
 	public static int pureGoldShovelId;
 	public static int pureIronPickaxeId;
 	public static int pureGoldPickaxeId;
+	public static int stoneHammerId;
 	//Defining Blocks
 	public static Block blockPureIron;
 	public static Block blockPureGold;
@@ -84,6 +86,7 @@ public class PureMetals {
 	public static Item pureGoldShovel;
 	public static Item pureIronPickaxe;
 	public static Item pureGoldPickaxe;
+	public static Item stoneHammer;
 	
 	@PreInit
 	public void preInit(FMLPreInitializationEvent event){
@@ -109,6 +112,7 @@ public class PureMetals {
 		pureGoldShovelId = config.getItem(ItemReferences.PURE_GOLD_SHOVEL_NAME, ItemReferences.PURE_GOLD_SHOVEL_DEFAULT_ID).getInt();
 		pureIronPickaxeId = config.getItem(ItemReferences.PURE_IRON_PICKAXE_NAME, ItemReferences.PURE_IRON_PICKAXE_DEFAULT_ID).getInt();
 		pureGoldPickaxeId = config.getItem(ItemReferences.PURE_GOLD_PICKAXE_NAME, ItemReferences.PURE_GOLD_PICKACE_DEFAULT_ID).getInt();
+		stoneHammerId = config.getItem(ItemReferences.STONE_HAMMER_NAME, ItemReferences.STONE_HAMMER_ID).getInt();
 		
 		config.save();
 	}
@@ -134,6 +138,7 @@ public class PureMetals {
 		pureGoldShovel = new ToolPureGoldShovel(pureGoldShovelId, EnumToolMaterial.GOLD, 2);
 		pureIronPickaxe = new ToolPureIronPickaxe(pureIronPickaxeId, EnumToolMaterial.EMERALD, 2);
 		pureGoldPickaxe = new ToolPureGoldPickaxe(pureGoldPickaxeId, EnumToolMaterial.GOLD, 2);
+		stoneHammer = new ToolStoneHammer(stoneHammerId);
 		
 		GameRegistry.registerCraftingHandler(new CraftingHandler());
 		
@@ -175,5 +180,6 @@ public class PureMetals {
 		LanguageRegistry.addName(pureGoldShovel, ItemReferences.PURE_GOLD_SHOVEL_NAME);
 		LanguageRegistry.addName(pureIronPickaxe, ItemReferences.PURE_IRON_PICKAXE_NAME);
 		LanguageRegistry.addName(pureGoldPickaxe, ItemReferences.PURE_GOLD_PICKAXE_NAME);
+		LanguageRegistry.addName(stoneHammer, ItemReferences.STONE_HAMMER_NAME);
 	}
 }
