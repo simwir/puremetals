@@ -13,6 +13,10 @@ public class ItemReferences {
 	public static final int BOWL_GOLD_DEFAULT_ID = 5007;
 	public static final int BOWL_MOLTEN_IRON_DEFAULT_ID = 5008;
 	public static final int BOWL_MOLTEN_GOLD_DEFAULT_ID = 5009;
+	public static final int PURE_IRON_SHOVEL_DEFAULT_ID = 5010;
+	public static final int PURE_GOLD_SHOVEL_DEFAULT_ID = 5011;
+	public static final int PURE_IRON_PICKAXE_DEFAULT_ID = 5012;
+	public static final int PURE_GOLD_PICKACE_DEFAULT_ID = 5013;
 	
 	//Item In-Game name
 	public static final String PURE_IRON_NAME = "Pure Iron";
@@ -25,4 +29,8 @@ public class ItemReferences {
 	public static final String BOWL_GOLD_NAME = "Bowl of Crushed Gold";
 	public static final String BOWL_MOLTEN_IRON_NAME = "Bowl of Molten Iron";
 	public static final String BOWL_MOLTEN_GOLD_NAME = "Bowl of Molten Gold";
+	public static final String PURE_IRON_SHOVEL_NAME = "Pure Iron Shovel";
+	public static final String PURE_GOLD_SHOVEL_NAME = "Pure Gold Shovel";
+	public static final String PURE_IRON_PICKAXE_NAME = "Pure Iron Pickaxe";
+	public static final String PURE_GOLD_PICKAXE_NAME = "Pure Gold Pickaxe";
 }

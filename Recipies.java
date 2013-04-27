@@ -29,48 +29,64 @@ public class Recipies {
 		pureGoldStack, pureGoldStack, pureGoldStack,
 		pureGoldStack, pureGoldStack, pureGoldStack);
 		
-		//Adding Pure Iron Block to Pure Iron Recipe
+		//Pure Iron Block to Pure Iron Recipe
 		GameRegistry.addShapelessRecipe(new ItemStack(PureMetals.pureIron, 9), new ItemStack(PureMetals.blockPureIron));
 		
-		//Adding Pure Gold Block to Pure Gold Recipe
+		//Pure Gold Block to Pure Gold Recipe
 		GameRegistry.addShapelessRecipe(new ItemStack(PureMetals.pureGold, 9), new ItemStack(PureMetals.blockPureGold));
 		
-		//Adding Iron Dust Recipe
+		//Iron Dust Recipe
 		GameRegistry.addShapelessRecipe(new ItemStack(PureMetals.ironDust),
 		new ItemStack(Block.cobblestone), new ItemStack(Item.ingotIron));
 		
-		//Adding Gold Dust Recipe
+		//Gold Dust Recipe
 		GameRegistry.addShapelessRecipe(new ItemStack(PureMetals.goldDust),
 		new ItemStack(Block.cobblestone), new ItemStack(Item.ingotGold));
 		
-		//Adding Chisel Recipe
+		//Chisel Recipe
 		GameRegistry.addShapedRecipe(new ItemStack(PureMetals.chisel), " x", "y ",
 				'x', new ItemStack(Block.stone), 'y', new ItemStack(Item.stick) );
 		
-		//Adding Brick Bowl Recipe
+		//Brick Bowl Recipe
 		GameRegistry.addShapelessRecipe(new ItemStack(PureMetals.brickBowl), 
 		new ItemStack(PureMetals.chisel,1, WILDCARD_VALUE), new ItemStack(Item.brick));
 		
-		//Adding Bowl of Crushed Iron Recipe
+		//Bowl of Crushed Iron Recipe
 		GameRegistry.addShapelessRecipe(new ItemStack(PureMetals.bowlIron), 
 		new ItemStack(PureMetals.brickBowl), new ItemStack(PureMetals.ironDust));
 		
-		//Adding Bowl of Crushed Gold Recipe
+		//Bowl of Crushed Gold Recipe
 		GameRegistry.addShapelessRecipe(new ItemStack(PureMetals.bowlGold), 
 		new ItemStack(PureMetals.brickBowl), new ItemStack(PureMetals.goldDust));
 		
-		//Adding Bowl of Molten Iron Smelting Recipe
+		//Bowl of Molten Iron Smelting Recipe
 		GameRegistry.addSmelting(PureMetals.bowlIron.itemID, new ItemStack(PureMetals.bowlMoltenIron), 0.1F);
 		
-		//Adding Bowl of Molten Gold Smelting Recipe
+		//Bowl of Molten Gold Smelting Recipe
 		GameRegistry.addSmelting(PureMetals.bowlGold.itemID, new ItemStack(PureMetals.bowlMoltenGold), 0.1F);
 		
-		//Adding Pure Iron Recipe
+		//Pure Iron Recipe
 		GameRegistry.addShapelessRecipe(pureIronStack, 
 		new ItemStack(PureMetals.chisel,1, WILDCARD_VALUE), new ItemStack(PureMetals.bowlMoltenIron));
 		
-		//Adding Pure Gold Recipe
+		//Pure Gold Recipe
 		GameRegistry.addShapelessRecipe(pureGoldStack, 
 		new ItemStack(PureMetals.chisel,1, WILDCARD_VALUE), new ItemStack(PureMetals.bowlMoltenGold));
+		
+		//Pure Iron Shovel Recipe
+		GameRegistry.addShapedRecipe(new ItemStack(PureMetals.pureIronShovel), " x ", " y ", " y ",
+				'x', pureIronStack, 'y', new ItemStack(Item.stick));
+		
+		//Pure Gold Shovel Recipe
+		GameRegistry.addShapedRecipe(new ItemStack(PureMetals.pureGoldShovel), " x ", " y ", " y ",
+				'x', pureGoldStack, 'y', new ItemStack(Item.stick));
+		
+		//Pure Iron Pickaxe Recipe
+		GameRegistry.addShapedRecipe(new ItemStack(PureMetals.pureIronPickaxe), "xxx", " y ", " y ",
+				'x', pureIronStack, 'y', new ItemStack(Item.stick));
+		
+		//Pure Gold Pickaxe Recipe
+				GameRegistry.addShapedRecipe(new ItemStack(PureMetals.pureGoldPickaxe), "xxx", " y ", " y ",
+						'x', pureGoldStack, 'y', new ItemStack(Item.stick));
 	}
 }

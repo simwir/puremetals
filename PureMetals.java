@@ -13,11 +13,16 @@ import mods.simwir.puremetals.items.ItemBrickBowl;
 import mods.simwir.puremetals.items.ItemGoldDust;
 import mods.simwir.puremetals.items.ItemIronDust;
 import mods.simwir.puremetals.items.ToolChisel;
+import mods.simwir.puremetals.items.ToolPureGoldPickaxe;
+import mods.simwir.puremetals.items.ToolPureGoldShovel;
+import mods.simwir.puremetals.items.ToolPureIronPickaxe;
+import mods.simwir.puremetals.items.ToolPureIronShovel;
 import mods.simwir.puremetals.lib.BlockReferences;
 import mods.simwir.puremetals.lib.ItemReferences;
 import mods.simwir.puremetals.lib.References;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
+import net.minecraft.item.EnumToolMaterial;
 import net.minecraft.item.Item;
 import net.minecraftforge.common.Configuration;
 import cpw.mods.fml.common.Mod;
@@ -57,6 +62,10 @@ public class PureMetals {
 	public static int bowlGoldId;
 	public static int bowlMoltenIronId;
 	public static int bowlMoltenGoldId;
+	public static int pureIronShovelId;
+	public static int pureGoldShovelId;
+	public static int pureIronPickaxeId;
+	public static int pureGoldPickaxeId;
 	//Defining Blocks
 	public static Block blockPureIron;
 	public static Block blockPureGold;
@@ -71,6 +80,10 @@ public class PureMetals {
 	public static Item bowlGold;
 	public static Item bowlMoltenIron;
 	public static Item bowlMoltenGold;
+	public static Item pureIronShovel;
+	public static Item pureGoldShovel;
+	public static Item pureIronPickaxe;
+	public static Item pureGoldPickaxe;
 	
 	@PreInit
 	public void preInit(FMLPreInitializationEvent event){
@@ -92,6 +105,10 @@ public class PureMetals {
 		bowlGoldId = config.getItem(ItemReferences.BOWL_GOLD_NAME, ItemReferences.BOWL_GOLD_DEFAULT_ID).getInt();
 		bowlMoltenIronId = config.getItem(ItemReferences.BOWL_MOLTEN_IRON_NAME, ItemReferences.BOWL_MOLTEN_IRON_DEFAULT_ID).getInt();
 		bowlMoltenGoldId = config.getItem(ItemReferences.BOWL_MOLTEN_GOLD_NAME, ItemReferences.BOWL_MOLTEN_GOLD_DEFAULT_ID).getInt();
+		pureIronShovelId = config.getItem(ItemReferences.PURE_IRON_SHOVEL_NAME, ItemReferences.PURE_IRON_SHOVEL_DEFAULT_ID).getInt();
+		pureGoldShovelId = config.getItem(ItemReferences.PURE_GOLD_SHOVEL_NAME, ItemReferences.PURE_GOLD_SHOVEL_DEFAULT_ID).getInt();
+		pureIronPickaxeId = config.getItem(ItemReferences.PURE_IRON_PICKAXE_NAME, ItemReferences.PURE_IRON_PICKAXE_DEFAULT_ID).getInt();
+		pureGoldPickaxeId = config.getItem(ItemReferences.PURE_GOLD_PICKAXE_NAME, ItemReferences.PURE_GOLD_PICKACE_DEFAULT_ID).getInt();
 		
 		config.save();
 	}
@@ -107,11 +124,16 @@ public class PureMetals {
 		ironDust = new ItemIronDust(ironDustId);
 		goldDust = new ItemGoldDust(goldDustId);
 		brickBowl = new ItemBrickBowl(brickBowlId);
-		chisel = new ToolChisel(chiselId);
 		bowlIron = new ItemBowlIron(bowlIronId);
 		bowlGold = new ItemBowlGold(bowlGoldId);
 		bowlMoltenIron = new ItemBowlMoltenIron(bowlMoltenIronId);
 		bowlMoltenGold = new ItemBowlMoltenGold(bowlMoltenGoldId);
+		//Adding Tools to game
+		chisel = new ToolChisel(chiselId);
+		pureIronShovel = new ToolPureIronShovel(pureIronShovelId, EnumToolMaterial.EMERALD, 2);
+		pureGoldShovel = new ToolPureGoldShovel(pureGoldShovelId, EnumToolMaterial.GOLD, 2);
+		pureIronPickaxe = new ToolPureIronPickaxe(pureIronPickaxeId, EnumToolMaterial.EMERALD, 2);
+		pureGoldPickaxe = new ToolPureGoldPickaxe(pureGoldPickaxeId, EnumToolMaterial.GOLD, 2);
 		
 		GameRegistry.registerCraftingHandler(new CraftingHandler());
 		
@@ -149,5 +171,9 @@ public class PureMetals {
 		LanguageRegistry.addName(bowlGold, ItemReferences.BOWL_GOLD_NAME);
 		LanguageRegistry.addName(bowlMoltenIron, ItemReferences.BOWL_MOLTEN_IRON_NAME);
 		LanguageRegistry.addName(bowlMoltenGold, ItemReferences.BOWL_MOLTEN_GOLD_NAME);
+		LanguageRegistry.addName(pureIronShovel, ItemReferences.PURE_IRON_SHOVEL_NAME);
+		LanguageRegistry.addName(pureGoldShovel, ItemReferences.PURE_GOLD_SHOVEL_NAME);
+		LanguageRegistry.addName(pureIronPickaxe, ItemReferences.PURE_IRON_PICKAXE_NAME);
+		LanguageRegistry.addName(pureGoldPickaxe, ItemReferences.PURE_GOLD_PICKAXE_NAME);
 	}
 }
