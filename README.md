@@ -6,7 +6,7 @@ Releases
 
 [Mirrors for all supported versions] (https://www.dropbox.com/sh/xxttiklwq9riwdl/zTE-R6M_2Y)
 
-[Pure Metals 1.0.1 (http://www.mediafire.com/download.php?s9h2q5wer6sc53c)
+[Pure Metals 1.0.1] (http://www.mediafire.com/download.php?s9h2q5wer6sc53c)
 
 [Pure Metals 1.0] (http://www.mediafire.com/download.php?s9h2q5wer6sc53c)
 
