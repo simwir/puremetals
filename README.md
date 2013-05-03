@@ -3,9 +3,12 @@ Pure Metals
 
 Releases
 ==========
-[Pure Metals 1.0] (http://www.mediafire.com/download.php?s9h2q5wer6sc53c) [Mirrors] (https://www.dropbox.com/sh/xxttiklwq9riwdl/zTE-R6M_2Y)
 
 [Mirrors for all supported versions] (https://www.dropbox.com/sh/xxttiklwq9riwdl/zTE-R6M_2Y)
+
+[Pure Metals 1.0.1 (http://www.mediafire.com/download.php?s9h2q5wer6sc53c)
+
+[Pure Metals 1.0] (http://www.mediafire.com/download.php?s9h2q5wer6sc53c)
 
 [Pure Metals 0.0.2.1] (http://www.mediafire.com/download.php?3bk5sz5lfscolny)
 
@@ -15,6 +18,14 @@ Releases
 
 Changelog:
 ==========
+
+1.0.1
+
++Pure Iron Axe
+
++Pure Gold Axe
+
+*Pure Iron Block light level
 
 1.0:
 
