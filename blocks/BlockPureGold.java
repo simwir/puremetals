@@ -9,6 +9,7 @@ public class BlockPureGold extends BlockPureIron{
 		
 		setUnlocalizedName("blockPureGold");
 		setHardness(3.0F);
+		setLightValue(1.0F);
 	}
 
 }

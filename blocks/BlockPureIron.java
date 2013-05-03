@@ -12,7 +12,7 @@ public class BlockPureIron extends Block{
 		
 		setUnlocalizedName("blockPureIron");
 		setCreativeTab(CreativeTabs.tabBlock);
-		setLightValue(1.0F);
+		setLightValue(0.8F);
 		setResistance(50);
 		setHardness(5.0F);
 	}
