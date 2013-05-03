@@ -18,6 +18,8 @@ public class ItemReferences {
 	public static final int PURE_IRON_PICKAXE_DEFAULT_ID = 5012;
 	public static final int PURE_GOLD_PICKACE_DEFAULT_ID = 5013;
 	public static final int STONE_HAMMER_ID = 5014;
+	public static final int PURE_GOLD_AXE_ID = 5015;
+	public static final int PURE_IRON_AXE_ID = 5016;
 	
 	//Item In-Game name
 	public static final String PURE_IRON_NAME = "Pure Iron";
@@ -35,4 +37,6 @@ public class ItemReferences {
 	public static final String PURE_IRON_PICKAXE_NAME = "Pure Iron Pickaxe";
 	public static final String PURE_GOLD_PICKAXE_NAME = "Pure Gold Pickaxe";
 	public static final String STONE_HAMMER_NAME = "Hammer";
+	public static final String PURE_GOlD_AXE_NAME = "Pure Gold Axe";
+	public static final String PURE_IRON_AXE_NAME = "Pure Iron Axe";
 }
