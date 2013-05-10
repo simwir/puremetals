@@ -1,5 +1,6 @@
 package mods.simwir.puremetals;
 
+import mods.simwir.puremetals.blocks.BlockGrinder;
 import mods.simwir.puremetals.blocks.BlockPureGold;
 import mods.simwir.puremetals.blocks.BlockPureIron;
 import mods.simwir.puremetals.common.core.handlers.CraftingHandler;
@@ -54,6 +55,7 @@ public class PureMetals {
 	//Defining Block ID int
 	public static int blockPureIronId;
 	public static int blockPureGoldId;
+	public static int blockGrinderId;
 	//Defining Item ID int
 	public static int pureIronId;
 	public static int pureGoldId;
@@ -75,6 +77,7 @@ public class PureMetals {
 	//Defining Blocks
 	public static Block blockPureIron;
 	public static Block blockPureGold;
+	public static Block blockGrinder;
 	//Defining Items
 	public static Item pureIron;
 	public static Item pureGold;
@@ -102,6 +105,7 @@ public class PureMetals {
 		//Creating Block IDs in config
 		blockPureIronId = config.getBlock(BlockReferences.BLOCK_PURE_IRON_NAME, BlockReferences.BLOCK_PURE_IRON_DEFAULT_ID).getInt();
 		blockPureGoldId = config.getBlock(BlockReferences.BLOCK_PURE_GOLD_NAME, BlockReferences.BLOCK_PURE_GOLD_DEFAULT_ID).getInt();
+		blockGrinderId = config.getBlock(BlockReferences.BLOCK_GRINDER_NAME, BlockReferences.BLOCK_GRINDER_DEFAULT_ID).getInt();
 		
 		//Creating Item IDs in config
 		pureIronId = config.getItem(ItemReferences.PURE_IRON_NAME, ItemReferences.PURE_IRON_DEFAULT_ID).getInt();
@@ -130,6 +134,7 @@ public class PureMetals {
 		//Adding blocks to game
 		blockPureIron = new BlockPureIron(blockPureIronId,Material.iron);
 		blockPureGold = new BlockPureGold(blockPureGoldId,Material.iron);
+		blockGrinder = new BlockGrinder(blockGrinderId, false);
 		//Adding items to game
 		pureIron = new IngotPureIron(pureIronId);
 		pureGold = new IngotPureGold(pureGoldId);
@@ -170,11 +175,13 @@ public class PureMetals {
 		//Registering blocks to game
 		GameRegistry.registerBlock(blockPureIron, "blockPureIron");
 		GameRegistry.registerBlock(blockPureGold, "blockPureGold");
+		GameRegistry.registerBlock(blockGrinder,"blockgrinder");
 	}
 	private static void languageRegisters(){
 		//Adding block names to game
 		LanguageRegistry.addName(blockPureIron, BlockReferences.BLOCK_PURE_IRON_NAME);
 		LanguageRegistry.addName(blockPureGold, BlockReferences.BLOCK_PURE_GOLD_NAME);
+		LanguageRegistry.addName(blockGrinder, BlockReferences.BLOCK_GRINDER_NAME);
 		//Adding item names to game
 		LanguageRegistry.addName(pureIron, ItemReferences.PURE_IRON_NAME);
 		LanguageRegistry.addName(pureGold, ItemReferences.PURE_GOLD_NAME);
