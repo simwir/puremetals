@@ -74,6 +74,8 @@ public class PureMetals {
 	public static int stoneHammerId;
 	public static int pureIronAxeId;
 	public static int pureGoldAxeId;
+	//Defining GUI Ids
+	public static final int blockGrinderGUIId = 0;
 	//Defining Blocks
 	public static Block blockPureIron;
 	public static Block blockPureGold;

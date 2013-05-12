@@ -5,6 +5,8 @@ import java.util.Random;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import mods.simwir.puremetals.PureMetals;
+import mods.simwir.puremetals.gui.GuiGrinder;
+import mods.simwir.puremetals.inventory.ContainerGrinder;
 import mods.simwir.puremetals.tileentity.TileEntityGrinder;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockContainer;
@@ -194,6 +196,8 @@ public class BlockGrinder extends BlockContainer{
     		ModLoader.openGUI((EntityPlayerSP) par5EPlayer, new GuiGrinder(par5EPlayer.inventory, (TileEntityGrinder) par5EPlayer.worldObj.getBlockTileEntity(par2, par3, par4)));
     		
     	}
+    	
+    	return true;
     }
     /**
     public int getBlockTexture(IBlockAccess par1IBA, int par2, int par3, int par4, int par5){
