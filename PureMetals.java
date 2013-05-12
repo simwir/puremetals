@@ -134,7 +134,7 @@ public class PureMetals {
 		//Adding blocks to game
 		blockPureIron = new BlockPureIron(blockPureIronId,Material.iron);
 		blockPureGold = new BlockPureGold(blockPureGoldId,Material.iron);
-		blockGrinder = new BlockGrinder(blockGrinderId, false);
+		blockGrinder = new GrinderLoader(blockGrinderId, false);
 		//Adding items to game
 		pureIron = new IngotPureIron(pureIronId);
 		pureGold = new IngotPureGold(pureGoldId);

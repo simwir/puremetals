@@ -15,6 +15,8 @@ public class TileEntityGrinder extends TileEntity implements IInventory{
 	public int front;
 	
 	private boolean isActive;
+
+	private String field_94130_e;
 	
 	public TileEntityGrinder(){
 		grinderItemStacks = new ItemStack[3]; //TODO
@@ -77,7 +79,8 @@ public class TileEntityGrinder extends TileEntity implements IInventory{
 			itemstack.stackSize = getInventoryStackLimit();
 		}
 	}
-
+	//not used same methods in the bottom.
+	/**
 	@Override
 	public String getInvName() {
 		return "container.grinder";
@@ -87,6 +90,7 @@ public class TileEntityGrinder extends TileEntity implements IInventory{
 	public boolean isInvNameLocalized() {
 		return false;
 	}
+	*/
 
 	@Override
 	public int getInventoryStackLimit() {
@@ -153,5 +157,26 @@ public class TileEntityGrinder extends TileEntity implements IInventory{
 		// TODO Auto-generated method stub
 		return false;
 	}
+	/**
+     * Returns the name of the inventory.
+     */
+    public String getInvName()
+    {
+        return this.isInvNameLocalized() ? this.field_94130_e : "container.grinder";
+    }
+
+    /**
+     * If this returns false, the inventory name will be used as an unlocalized name, and translated into the player's
+     * language. Otherwise it will be used directly.
+     */
+    public boolean isInvNameLocalized()
+    {
+        return this.field_94130_e != null && this.field_94130_e.length() > 0;
+    }
+
+    public void func_94129_a(String par1Str)
+    {
+        this.field_94130_e = par1Str;
+    }
 
 }

@@ -4,15 +4,25 @@ import java.util.Random;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+import mods.simwir.puremetals.PureMetals;
 import mods.simwir.puremetals.tileentity.TileEntityGrinder;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
+import net.minecraft.client.entity.EntityPlayerSP;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.entity.EntityLiving;
+import net.minecraft.entity.item.EntityItem;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.player.EntityPlayerMP;
+import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.src.ModLoader;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraft.tileentity.TileEntityFurnace;
 import net.minecraft.util.Icon;
+import net.minecraft.util.MathHelper;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
@@ -25,6 +35,7 @@ public class BlockGrinder extends BlockContainer{
 	private Random grinderRand;
 	/** True if this is an active furnace, false if idle */
     private final boolean isActive;
+    private static boolean keepGrinderInventory = false;
 
 	protected BlockGrinder(int par1, boolean par2) {
 		super(par1, Material.rock);
@@ -33,6 +44,11 @@ public class BlockGrinder extends BlockContainer{
 		grinderRand = new Random();
 		this.isActive = par2;
 	}
+	public int idDropped(int par1, Random par2Random, int par3)
+    {
+        return PureMetals.blockGrinderId;
+    }
+	
 	
 	/**
      * From the specified side and block metadata retrieves the blocks texture. Args: side, metadata
@@ -48,7 +64,7 @@ public class BlockGrinder extends BlockContainer{
     public void registerIcons(IconRegister par1IconRegister)
     {
         this.blockIcon = par1IconRegister.registerIcon("simwir/puremetals:grinder_side");
-        this.grinderFront = par1IconRegister.registerIcon(this.isActive ? "grinder_front_lit" : "grinder_front");
+        this.grinderFront = par1IconRegister.registerIcon(this.isActive ? "simwir/puremetals:grinder_front_lit" : "simwir/puremetals:grinder_front");
         this.grinderTop = par1IconRegister.registerIcon("simwir/puremetals:grinder_top");
     }
     @Override
@@ -58,12 +74,12 @@ public class BlockGrinder extends BlockContainer{
     
     public void onBlockAdded(World par1World, int par2, int par3, int par4){
     	super.onBlockAdded(par1World, par2, par3, par4);
-    	
+    	this.setDefaultDirection(par1World, par2, par3, par4);
     	par1World.markBlockForUpdate(par2, par3, par4);
     }
     
     private void setDefaultDirection(World par1World, int par2, int par3, int par4){
-    	TileEntity blockEntity = par1World.getBlockTileEntity(par2, par3, par4);
+    	//TileEntity blockEntity = par1World.getBlockTileEntity(par2, par3, par4);
     	if(par1World.isRemote){
     		return;
     	}
@@ -97,6 +113,88 @@ public class BlockGrinder extends BlockContainer{
         //((TileEntityGrinder) blockEntity).setFrontDirection(byte0);
         par1World.setBlockMetadataWithNotify(par2, par3, par4, byte0, 2);
     }
+    public void onBlockPlacedBy(World par1World, int par2, int par3, int par4, EntityLiving par5EntityLiving, ItemStack par6ItemStack)
+    {
+        int l = MathHelper.floor_double((double)(par5EntityLiving.rotationYaw * 4.0F / 360.0F) + 0.5D) & 3;
+
+        if (l == 0)
+        {
+            par1World.setBlockMetadataWithNotify(par2, par3, par4, 2, 2);
+        }
+
+        if (l == 1)
+        {
+            par1World.setBlockMetadataWithNotify(par2, par3, par4, 5, 2);
+        }
+
+        if (l == 2)
+        {
+            par1World.setBlockMetadataWithNotify(par2, par3, par4, 3, 2);
+        }
+
+        if (l == 3)
+        {
+            par1World.setBlockMetadataWithNotify(par2, par3, par4, 4, 2);
+        }
+
+        if (par6ItemStack.hasDisplayName())
+        {
+            ((TileEntityGrinder)par1World.getBlockTileEntity(par2, par3, par4)).func_94129_a(par6ItemStack.getDisplayName());
+        }
+    }
+    public void breakBlock(World par1World, int par2, int par3, int par4, int par5, int par6){
+    	if(!keepGrinderInventory){
+    		TileEntityGrinder grinder = (TileEntityGrinder) par1World.getBlockTileEntity(par2, par3, par4);
+    		if(grinder != null){
+    			for(int i = 0; i < grinder.getSizeInventory(); ++i){
+    				ItemStack itemstack = grinder.getStackInSlot(i);
+    				if(itemstack != null){
+    					float j = this.grinderRand.nextFloat() * 0.8F + 0.1F;
+    					float k = this.grinderRand.nextFloat() * 0.8F + 0.1F;
+    					float l = this.grinderRand.nextFloat() * 0.8F + 0.1F;
+    					
+    					while(itemstack.stackSize > 0){
+    						int m = this.grinderRand.nextInt(21) + 10;
+    						
+    						if(m > itemstack.stackSize){
+    							m = itemstack.stackSize;
+    						}
+    						
+    						itemstack.stackSize-= m;
+    						
+    						EntityItem n = new EntityItem(par1World, (double)((float) par2 + j), (double)((float) par3 + k), (double)((float) par4 + l), new ItemStack(itemstack.itemID, m, itemstack.getItemDamage()));
+    						
+    						if(itemstack.hasTagCompound()){
+    							n.getEntityItem().setTagCompound((NBTTagCompound)itemstack.getTagCompound().copy());
+    						}
+    						
+    						float o = 0.05F;
+    						
+    						n.motionX = (double) ((float)this.grinderRand.nextGaussian()*o);
+    						n.motionY = (double) ((float)this.grinderRand.nextGaussian()*o);
+    						n.motionZ = (double) ((float)this.grinderRand.nextGaussian()*o);
+    						
+    						par1World.spawnEntityInWorld(n);
+    					}
+    				}
+    			}
+    		}
+    		
+    	}
+    	super.breakBlock(par1World, par2, par3, par4, par5, par6);
+    }
+   
+    public boolean onBlockActivated(World par1World, int par2, int par3, int par4, EntityPlayer par5EPlayer, int par6, float par7, float par8, float par9){
+    	TileEntityGrinder grinder =  (TileEntityGrinder) par1World.getBlockTileEntity(par2, par3, par4);
+    	
+    	if(par5EPlayer instanceof EntityPlayerMP){
+    		ModLoader.serverOpenWindow((EntityPlayerMP) par5EPlayer, new ContainerGrinder(par5EPlayer.inventory, grinder),PureMetals.blockGrinderGUIId, par2, par3, par4);
+    		
+    	}else{
+    		ModLoader.openGUI((EntityPlayerSP) par5EPlayer, new GuiGrinder(par5EPlayer.inventory, (TileEntityGrinder) par5EPlayer.worldObj.getBlockTileEntity(par2, par3, par4)));
+    		
+    	}
+    }
     /**
     public int getBlockTexture(IBlockAccess par1IBA, int par2, int par3, int par4, int par5){
     	int front = 0;
@@ -111,5 +209,6 @@ public class BlockGrinder extends BlockContainer{
     	switch(par5)
     	
     }*/
+    
 
 }
