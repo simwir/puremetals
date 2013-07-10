@@ -2,6 +2,7 @@ package mods.simwir.puremetals.items;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+import mods.simwir.puremetals.lib.References;
 import mods.simwir.puremetals.lib.ToolReferences;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -20,7 +21,7 @@ public class ToolPureIronPickaxe extends ItemPickaxe{
 	
 	@SideOnly(Side.CLIENT)
 	public void registerIcons(IconRegister iconRegister){
-	         this.itemIcon = iconRegister.registerIcon("simwir/puremetals:"+this.getUnlocalizedName().substring(5));
+	         this.itemIcon = iconRegister.registerIcon(References.MOD_ID+":"+this.getUnlocalizedName().substring(5));
 	}
 	@SideOnly(Side.CLIENT)
 	public boolean hasEffect(ItemStack par1ItemStack)

@@ -6,6 +6,8 @@ Releases
 
 [Mirrors for all supported versions] (https://www.dropbox.com/sh/xxttiklwq9riwdl/zTE-R6M_2Y)
 
+[Pure Metals 1.1] (http://www.mediafire.com/download/x64mna24t3papdk/Pure_Metals_V.1.1.zip)
+
 [Pure Metals 1.0.1] (http://www.mediafire.com/download.php?s9h2q5wer6sc53c)
 
 [Pure Metals 1.0] (http://www.mediafire.com/download.php?s9h2q5wer6sc53c)
@@ -16,8 +18,19 @@ Releases
 
 [Pure Metals 0.0.1] (http://www.mediafire.com/download.php?7dhe3drr725f0mr)
 
+Planned:
+==========
+
++Grinder instead of the hammer
+
++some sort of washing of the minerals
+
 Changelog:
 ==========
+
+1.1
+
+*updated for 1.6.2
 
 1.0.1
 

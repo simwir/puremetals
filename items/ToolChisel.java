@@ -2,6 +2,7 @@ package mods.simwir.puremetals.items;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+import mods.simwir.puremetals.lib.References;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
@@ -17,7 +18,7 @@ public class ToolChisel extends Item{
 	}
 	@SideOnly(Side.CLIENT)
 	public void registerIcons(IconRegister iconRegister){
-	         this.itemIcon = iconRegister.registerIcon("simwir/puremetals:"+this.getUnlocalizedName().substring(5));
+	         this.itemIcon = iconRegister.registerIcon(References.MOD_ID+":"+this.getUnlocalizedName().substring(5));
 	}
 }
 

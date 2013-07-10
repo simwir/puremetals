@@ -1,5 +1,8 @@
 package mods.simwir.puremetals.blocks;
 
+import java.lang.ref.Reference;
+
+import mods.simwir.puremetals.lib.References;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
@@ -13,11 +16,11 @@ public class BlockPureIron extends Block{
 		setUnlocalizedName("blockPureIron");
 		setCreativeTab(CreativeTabs.tabBlock);
 		setLightValue(0.8F);
-		setResistance(50);
+		setResistance(10.0F);
 		setHardness(5.0F);
 	}
 	@Override
 	public void registerIcons(IconRegister iconRegister){
-        this.blockIcon = iconRegister.registerIcon("simwir/puremetals:"+this.getUnlocalizedName().substring(5));
+        this.blockIcon = iconRegister.registerIcon(References.MOD_ID+":"+this.getUnlocalizedName().substring(5));
 	}
 }
