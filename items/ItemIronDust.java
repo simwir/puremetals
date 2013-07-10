@@ -1,5 +1,6 @@
 package mods.simwir.puremetals.items;
 
+import mods.simwir.puremetals.lib.References;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
@@ -16,6 +17,6 @@ public class ItemIronDust extends Item{
 	}
 	@SideOnly(Side.CLIENT)
 	public void registerIcons(IconRegister iconRegister){
-	         this.itemIcon = iconRegister.registerIcon("simwir/puremetals:"+this.getUnlocalizedName().substring(5));
+	         this.itemIcon = iconRegister.registerIcon(References.MOD_ID+":"+this.getUnlocalizedName().substring(5));
 	}
 }
