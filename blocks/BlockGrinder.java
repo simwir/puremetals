@@ -7,6 +7,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 import mods.simwir.puremetals.PureMetals;
 import mods.simwir.puremetals.gui.GuiGrinder;
 import mods.simwir.puremetals.inventory.ContainerGrinder;
+import mods.simwir.puremetals.lib.References;
 import mods.simwir.puremetals.tileentity.TileEntityGrinder;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockContainer;
@@ -65,9 +66,9 @@ public class BlockGrinder extends BlockContainer{
      */
     public void registerIcons(IconRegister par1IconRegister)
     {
-        this.blockIcon = par1IconRegister.registerIcon("simwir/puremetals:grinder_side");
-        this.grinderFront = par1IconRegister.registerIcon(this.isActive ? "simwir/puremetals:grinder_front_lit" : "simwir/puremetals:grinder_front");
-        this.grinderTop = par1IconRegister.registerIcon("simwir/puremetals:grinder_top");
+        this.blockIcon = par1IconRegister.registerIcon(References.MOD_ID+":grinder_side");
+        this.grinderFront = par1IconRegister.registerIcon(this.isActive ? References.MOD_ID+":grinder_front_lit" : References.MOD_ID+":grinder_front");
+        this.grinderTop = par1IconRegister.registerIcon(References.MOD_ID+":grinder_top");
     }
     @Override
     public TileEntity createNewTileEntity(World world){
