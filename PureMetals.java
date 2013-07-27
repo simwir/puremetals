@@ -30,6 +30,7 @@ import net.minecraft.item.EnumToolMaterial;
 import net.minecraft.item.Item;
 import net.minecraftforge.common.Configuration;
 import cpw.mods.fml.common.Mod;
+import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.Mod.Init;
 import cpw.mods.fml.common.Mod.Instance;
 import cpw.mods.fml.common.Mod.PostInit;
@@ -99,7 +100,7 @@ public class PureMetals {
 	public static Item pureIronAxe;
 	public static Item pureGoldAxe;
 	
-	@PreInit
+	@EventHandler
 	public void preInit(FMLPreInitializationEvent event){
 		Configuration config = new Configuration(event.getSuggestedConfigurationFile());
 
@@ -131,7 +132,7 @@ public class PureMetals {
 		config.save();
 	}
 	
-	@Init
+	@EventHandler
 	public void load(FMLInitializationEvent event){
 		//Adding blocks to game
 		blockPureIron = new BlockPureIron(blockPureIronId,Material.iron);

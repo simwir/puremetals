@@ -8,7 +8,7 @@ public class GrinderLoader extends BlockGrinder{
 		super(par1, par2);
 		/**
 		 * Used to load BlockGrinder.java is needed because BlockGrinders constructor is protected.
-		 * Might not be nesseary but at of this monent it is.
+		 * Might not be nesseary but at of this moment it is.
 		 */
 	}
 }

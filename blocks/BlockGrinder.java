@@ -81,40 +81,38 @@ public class BlockGrinder extends BlockContainer{
     	par1World.markBlockForUpdate(par2, par3, par4);
     }
     
-    private void setDefaultDirection(World par1World, int par2, int par3, int par4){
-    	//TileEntity blockEntity = par1World.getBlockTileEntity(par2, par3, par4);
-    	if(par1World.isRemote){
-    		return;
-    	}
-    	int i = par1World.getBlockId(par2, par3, par4 - 1);
-    	int j = par1World.getBlockId(par2, par3, par4 + 1);
-    	int k = par1World.getBlockId(par2 - 1, par3, par4);
-    	int l = par1World.getBlockId(par2 + 1, par3, par4);
-    	
-    	byte byte0 = 3;
-    	
-    	if (Block.opaqueCubeLookup[i] && !Block.opaqueCubeLookup[j])
+    private void setDefaultDirection(World par1World, int par2, int par3, int par4)
+    {
+        if (!par1World.isRemote)
         {
-            byte0 = 3;
-        }
+            int l = par1World.getBlockId(par2, par3, par4 - 1);
+            int i1 = par1World.getBlockId(par2, par3, par4 + 1);
+            int j1 = par1World.getBlockId(par2 - 1, par3, par4);
+            int k1 = par1World.getBlockId(par2 + 1, par3, par4);
+            byte b0 = 3;
 
-        if (Block.opaqueCubeLookup[j] && !Block.opaqueCubeLookup[i])
-        {
-            byte0 = 2;
-        }
+            if (Block.opaqueCubeLookup[l] && !Block.opaqueCubeLookup[i1])
+            {
+                b0 = 3;
+            }
 
-        if (Block.opaqueCubeLookup[k] && !Block.opaqueCubeLookup[l])
-        {
-            byte0 = 5;
-        }
+            if (Block.opaqueCubeLookup[i1] && !Block.opaqueCubeLookup[l])
+            {
+                b0 = 2;
+            }
 
-        if (Block.opaqueCubeLookup[l] && !Block.opaqueCubeLookup[k])
-        {
-            byte0 = 4;
+            if (Block.opaqueCubeLookup[j1] && !Block.opaqueCubeLookup[k1])
+            {
+                b0 = 5;
+            }
+
+            if (Block.opaqueCubeLookup[k1] && !Block.opaqueCubeLookup[j1])
+            {
+                b0 = 4;
+            }
+
+            par1World.setBlockMetadataWithNotify(par2, par3, par4, b0, 2);
         }
-        
-        //((TileEntityGrinder) blockEntity).setFrontDirection(byte0);
-        par1World.setBlockMetadataWithNotify(par2, par3, par4, byte0, 2);
     }
     public void onBlockPlacedBy(World par1World, int par2, int par3, int par4, EntityLiving par5EntityLiving, ItemStack par6ItemStack)
     {
