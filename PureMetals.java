@@ -16,9 +16,11 @@ import mods.simwir.puremetals.items.ToolChisel;
 import mods.simwir.puremetals.items.ToolPureGoldAxe;
 import mods.simwir.puremetals.items.ToolPureGoldPickaxe;
 import mods.simwir.puremetals.items.ToolPureGoldShovel;
+import mods.simwir.puremetals.items.ToolPureGoldSword;
 import mods.simwir.puremetals.items.ToolPureIronAxe;
 import mods.simwir.puremetals.items.ToolPureIronPickaxe;
 import mods.simwir.puremetals.items.ToolPureIronShovel;
+import mods.simwir.puremetals.items.ToolPureIronSword;
 import mods.simwir.puremetals.items.ToolStoneHammer;
 import mods.simwir.puremetals.lib.BlockReferences;
 import mods.simwir.puremetals.lib.ItemReferences;
@@ -29,10 +31,8 @@ import net.minecraft.item.EnumToolMaterial;
 import net.minecraft.item.Item;
 import net.minecraftforge.common.Configuration;
 import cpw.mods.fml.common.Mod;
-import cpw.mods.fml.common.Mod.Init;
+import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.Mod.Instance;
-import cpw.mods.fml.common.Mod.PostInit;
-import cpw.mods.fml.common.Mod.PreInit;
 import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
@@ -72,6 +72,9 @@ public class PureMetals {
 	public static int stoneHammerId;
 	public static int pureIronAxeId;
 	public static int pureGoldAxeId;
+	public static int pureIronSwordId;
+	public static int pureGoldSwordId;
+	
 	//Defining Blocks
 	public static Block blockPureIron;
 	public static Block blockPureGold;
@@ -93,8 +96,10 @@ public class PureMetals {
 	public static Item stoneHammer;
 	public static Item pureIronAxe;
 	public static Item pureGoldAxe;
+	public static Item pureIronSword;
+	public static Item pureGoldSword;
 	
-	@PreInit
+	@EventHandler
 	public void preInit(FMLPreInitializationEvent event){
 		Configuration config = new Configuration(event.getSuggestedConfigurationFile());
 
@@ -121,11 +126,13 @@ public class PureMetals {
 		stoneHammerId = config.getItem(ItemReferences.STONE_HAMMER_NAME, ItemReferences.STONE_HAMMER_ID).getInt();
 		pureIronAxeId = config.getItem(ItemReferences.PURE_IRON_AXE_NAME, ItemReferences.PURE_IRON_AXE_ID).getInt();
 		pureGoldAxeId = config.getItem(ItemReferences.PURE_GOlD_AXE_NAME, ItemReferences.PURE_GOLD_AXE_ID).getInt();
+		pureIronSwordId = config.getItem(ItemReferences.PURE_IRON_SWORD_NAME, ItemReferences.PURE_IRON_SWORD_ID).getInt();
+		pureGoldSwordId = config.getItem(ItemReferences.PURE_GOLD_SWORD_NAME, ItemReferences.PURE_GOLD_SWORD_ID).getInt();
 		
 		config.save();
 	}
 	
-	@Init
+	@EventHandler
 	public void load(FMLInitializationEvent event){
 		//Adding blocks to game
 		blockPureIron = new BlockPureIron(blockPureIronId,Material.iron);
@@ -149,6 +156,8 @@ public class PureMetals {
 		stoneHammer = new ToolStoneHammer(stoneHammerId);
 		pureIronAxe = new ToolPureIronAxe(pureIronAxeId, EnumToolMaterial.EMERALD);
 		pureGoldAxe = new ToolPureGoldAxe(pureGoldAxeId, EnumToolMaterial.GOLD);
+		pureIronSword = new ToolPureIronSword(pureIronSwordId, EnumToolMaterial.EMERALD);
+		pureGoldSword = new ToolPureGoldSword(pureGoldSwordId, EnumToolMaterial.GOLD);
 		
 		GameRegistry.registerCraftingHandler(new CraftingHandler());
 		
@@ -162,7 +171,7 @@ public class PureMetals {
 		proxy.registerRenders();
 	}
 	
-	@PostInit
+	@EventHandler
 	public void postInit(FMLPostInitializationEvent event){
 		//Stub Method
 	}
@@ -193,5 +202,7 @@ public class PureMetals {
 		LanguageRegistry.addName(stoneHammer, ItemReferences.STONE_HAMMER_NAME);
 		LanguageRegistry.addName(pureIronAxe, ItemReferences.PURE_IRON_AXE_NAME);
 		LanguageRegistry.addName(pureGoldAxe, ItemReferences.PURE_GOlD_AXE_NAME);
+		LanguageRegistry.addName(pureIronSword, ItemReferences.PURE_IRON_SWORD_NAME);
+		LanguageRegistry.addName(pureGoldSword, ItemReferences.PURE_GOLD_SWORD_NAME);
 	}
 }
