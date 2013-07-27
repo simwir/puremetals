@@ -20,6 +20,8 @@ public class ItemReferences {
 	public static final int STONE_HAMMER_ID = 5014;
 	public static final int PURE_GOLD_AXE_ID = 5015;
 	public static final int PURE_IRON_AXE_ID = 5016;
+	public static final int PURE_IRON_SWORD_ID = 5017;
+	public static final int PURE_GOLD_SWORD_ID = 5018;
 	
 	//Item In-Game name
 	public static final String PURE_IRON_NAME = "Pure Iron";
@@ -39,4 +41,6 @@ public class ItemReferences {
 	public static final String STONE_HAMMER_NAME = "Hammer";
 	public static final String PURE_GOlD_AXE_NAME = "Pure Gold Axe";
 	public static final String PURE_IRON_AXE_NAME = "Pure Iron Axe";
+	public static final String PURE_IRON_SWORD_NAME = "Pure Iron Sword";
+	public static final String PURE_GOLD_SWORD_NAME = "Pure Gold Sword";
 }

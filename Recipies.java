@@ -15,15 +15,18 @@ public class Recipies {
 	}
 
 	public static void recipies() {
+		//Adding ItemStacks
+		ItemStack pureIronStack = new ItemStack(PureMetals.pureIron);
+		ItemStack pureGoldStack = new ItemStack(PureMetals.pureGold);
+		ItemStack stickStack = new ItemStack(Item.stick);
+		
 		//Adding Pure Iron Block Recipe
-		ItemStack pureIronStack = new ItemStack (PureMetals.pureIron);
 		GameRegistry.addShapelessRecipe(new ItemStack(PureMetals.blockPureIron),
 		pureIronStack, pureIronStack, pureIronStack,
 		pureIronStack, pureIronStack, pureIronStack,
 		pureIronStack, pureIronStack, pureIronStack);
 		
 		//Adding Pure Gold Block Recipe
-		ItemStack pureGoldStack = new ItemStack (PureMetals.pureGold);
 		GameRegistry.addShapelessRecipe(new ItemStack(PureMetals.blockPureGold),
 		pureGoldStack, pureGoldStack, pureGoldStack,
 		pureGoldStack, pureGoldStack, pureGoldStack,
@@ -75,21 +78,39 @@ public class Recipies {
 		
 		//Pure Iron Shovel Recipe
 		GameRegistry.addShapedRecipe(new ItemStack(PureMetals.pureIronShovel), " x ", " y ", " y ",
-				'x', pureIronStack, 'y', new ItemStack(Item.stick));
+				'x', pureIronStack, 'y', stickStack);
 		
 		//Pure Gold Shovel Recipe
 		GameRegistry.addShapedRecipe(new ItemStack(PureMetals.pureGoldShovel), " x ", " y ", " y ",
-				'x', pureGoldStack, 'y', new ItemStack(Item.stick));
+				'x', pureGoldStack, 'y', stickStack);
 		
 		//Pure Iron Pickaxe Recipe
 		GameRegistry.addShapedRecipe(new ItemStack(PureMetals.pureIronPickaxe), "xxx", " y ", " y ",
-				'x', pureIronStack, 'y', new ItemStack(Item.stick));
+				'x', pureIronStack, 'y', stickStack);
 		
 		//Pure Gold Pickaxe Recipe
 				GameRegistry.addShapedRecipe(new ItemStack(PureMetals.pureGoldPickaxe), "xxx", " y ", " y ",
-						'x', pureGoldStack, 'y', new ItemStack(Item.stick));
+						'x', pureGoldStack, 'y', stickStack);
 		//Stone Hammer Recipe
 				GameRegistry.addShapedRecipe(new ItemStack(PureMetals.stoneHammer), "xxx", "xyx", " y ",
-						'x', new ItemStack(Block.cobblestone), 'y', new ItemStack(Item.stick));
+						'x', new ItemStack(Block.cobblestone), 'y', stickStack);
+		//Pure Iron Axe Recipe
+				GameRegistry.addShapedRecipe(new ItemStack(PureMetals.pureIronAxe), "xx ", "xy ", " y ",
+						'x', pureIronStack, 'y', stickStack);
+		//Pure Gold Axe Recipe
+				GameRegistry.addShapedRecipe(new ItemStack(PureMetals.pureGoldAxe), "xx ", "xy ", " y ",
+						'x', pureGoldStack, 'y', stickStack);
+		//Pure Iron Axe Reversed Recipe
+				GameRegistry.addShapedRecipe(new ItemStack(PureMetals.pureIronAxe), " xx", " yx", " y ",
+						'x', pureIronStack, 'y', stickStack);
+		//Pure Gold Axe Reversed Recipe
+				GameRegistry.addShapedRecipe(new ItemStack(PureMetals.pureGoldAxe), " xx", " yx", " y ",
+						'x', pureGoldStack, 'y', stickStack);
+		//Pure Iron Sword Recipe
+				GameRegistry.addShapedRecipe(new ItemStack(PureMetals.pureIronSword), " x ", " x ", " y ",
+						'x', pureIronStack, 'y', stickStack);
+		//Pure Gold Sword Recipe
+				GameRegistry.addShapedRecipe(new ItemStack(PureMetals.pureGoldSword), " x ", " x ", " y ",
+						'x', pureGoldStack, 'y', stickStack);
 	}
 }
