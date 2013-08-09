@@ -112,5 +112,15 @@ public class Recipies {
 		//Pure Gold Sword Recipe
 				GameRegistry.addShapedRecipe(new ItemStack(PureMetals.pureGoldSword), " x ", " x ", " y ",
 						'x', pureGoldStack, 'y', stickStack);
+				
+		/**
+		 * Non game changing recipes
+		 */
+		//Chiseled Stone brick
+				GameRegistry.addShapelessRecipe(new ItemStack(Block.stoneBrick, 1 , 3),
+						new ItemStack(PureMetals.chisel,1, WILDCARD_VALUE), new ItemStack(Block.stone));
+		//Cracked Stone brick
+				GameRegistry.addShapelessRecipe(new ItemStack(Block.stoneBrick, 1, 2), 
+						new ItemStack(PureMetals.stoneHammer,1, WILDCARD_VALUE), new ItemStack(Block.stoneBrick));
 	}
 }
